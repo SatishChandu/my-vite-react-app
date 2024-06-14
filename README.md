@@ -1,2 +1,2 @@
 # my-vite-react-app
-Satish Kumar Chandu.
+This is the Vite+React app which helps the users/clients to get the info of software experts.
