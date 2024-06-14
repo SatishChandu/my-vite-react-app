@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Satish Kumar Chandu",
+      "designation": "Software Developer | Front End Developer",
+      "organisation": "CMS Edge Solutions Pvt. Ltd",
+      "achievements": [
+        "Developed a scalable web application",
+        "Worked in a team of 5 engineers",
+        "Created responsive templates"
+      ]
+    },
+    {
+      "id": 2,
+      "fullName": "Mohammed Hussain",
+      "designation": "Software Developer | Back End Developer",
+      "organisation": "GoSure.AI Pvt. Ltd",
+      "achievements": [
+        "Developed a scalable web APIs",
+        "Worked in a team of 6 engineers",
+        "Created a Database schema"
+      ]
+    },
+    {
+      "id": 3,
+      "fullName": "Priyanshu",
+      "designation": "Software Engineer | Solution Engineer",
+      "organisation": "GoSure.AI Pvt. Ltd",
+      "achievements": [
+        "Set up the configurations for the web apps",
+        "Worked in Manual & Automated testing environments"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "image": "../src/assets/bank.svg",
+      "title": "Consumer Engagement",
+      "description": "Allowing you to interact with your potential consumers. Through the platform, users can interact with browse services and receive personalised notifications."
+    },
+    {
+      "id": 2,
+      "image": "../src/assets/palette2.svg",
+      "title": "Brand Visibility",
+      "description": "Having your own design can enhance your visibility.The brand's logo used in the app will work as a reminder in the mind of the users and this leads to fame."
+    },
+    {
+      "id": 3,
+      "image": "../src/assets/person-circle.svg",
+      "title": "Customer Service",
+      "description": "Mobile apps provide features that can strengthen the use of customer service solutions by incorporating chatbot functionality into your app. This will provide transparency."
+    },
+    {
+      "id": 4,
+      "image": "../src/assets/currency-dollar.svg",
+      "title": "Enhanced Sales and Revenue",
+      "description": "A well-crafted Web/Mobile app can assist you to make easy transactions. This will ease the overall buying and purchasing experience and can enhance sales and leads."
+    },
+    {
+      "id": 5,
+      "image": "../src/assets/arrows-angle-contract.svg",
+      "title": "Competitive Advantage",
+      "description": "It's going to be win-win situation for firm if your competitor doesn't have an app, then you can easily gaain popularity and get more perks in your hand."
+    },
+    {
+      "id": 6,
+      "image": "../src/assets/bounding-box.svg",
+      "title": "Data Collection & Analytics",
+      "description": "Using mobile apps you can gain better insights into your customer's patterns, and prefernces, and create better data-driven services based on your understanding of them."
+    }
+  ],
+  "contacts": [
+    {
+      "id": "2bd5",
+      "fullName": "Satish Kumar Chandu",
+      "email": "bnvs@gmail.com",
+      "mobile": "9989305241",
+      "organization": "CMS Edge Solutions Pvt. Ltd",
+      "message": "This is the message from the software engineer who is having more than 2 yrs of hands on experience in the software development field."
+    }
+  ]
+}
