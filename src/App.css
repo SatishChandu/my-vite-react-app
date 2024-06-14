@@ -11,7 +11,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #550e55, #40afa0);
+      background: linear-gradient(135deg, #550e55, #3eb1a1);
       filter: saturate(1.5);
       
 }
