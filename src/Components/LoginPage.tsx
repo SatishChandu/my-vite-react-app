@@ -19,19 +19,21 @@ const LoginPage: React.FC = () => {
     const [showAlert, setShowAlert] = useState(false);
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
     const navigate = useNavigate();
-    const { login } = useAuth();
+    const { login, loginWithAuth0 } = useAuth();
     //Login handler
-    const loginHandler = () => {
+    const loginHandler = async () => {
         if(!email || !password){
-            setError("Please enter the valid credentials");
+            setError("Please enter valid credentials");
+            setTimeout(() => setError(''), 3000);
             return;
         }
         const user = users.find((u) => u.email === email && u.password === password);
         if(user){
-          login();
-          navigate('./landingpage');
+          login(email, password);
+          navigate('/landingpage');
         } else {
             setError("Invalid credentials");
+            setTimeout(() => setError(''), 3000);
           }
     };
     //SignUp Handler
@@ -50,6 +52,10 @@ const LoginPage: React.FC = () => {
         setTimeout(() => setShowSuccessAlert(false), 3000);
         setTimeout(() => setShowSignupModal(false), 3000);
     };
+
+    const handleAuth0Login = async () => {
+      await loginWithAuth0();
+    }
 
   return (
     <>
@@ -83,7 +89,8 @@ const LoginPage: React.FC = () => {
               </Form.Label>
           <div className="btn-submit">
             <Button variant="outline-primary" onClick={loginHandler}>Login</Button>{' '}
-            <Button variant="outline-warning" onClick={signupHandler}>Signup</Button>   
+            <Button variant="outline-warning" onClick={signupHandler}>Signup</Button><br /><hr />
+            <Button variant="outline-success" onClick={handleAuth0Login}>Login with Auth0</Button>  
         </div>  
       </div>
 

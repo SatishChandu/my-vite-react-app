@@ -19,14 +19,24 @@ import Subenquiry2 from './Components/enquiry/Subenquiry2.tsx';
 import Subenquiry3 from './Components/enquiry/Subenquiry3.tsx';
 import { AuthProvider } from './Components/AuthContext.tsx';
 import PrivateRoute from './Components/PrivateRoute.tsx';
+import { Auth0Provider } from '@auth0/auth0-react';
+import Auth0Callback from './Components/Auth0Callback.tsx';
 
 const App: React.FC = () => {
   return (
     <>
+    <Auth0Provider
+    domain="dev-iwi5abr18yz3piud.us.auth0.com"
+    clientId="JGflAGltYC0gY7lSAheKBlVpOnRtf2tI"
+    authorizationParams={{
+      redirect_uri: window.location.origin + '/callback'
+    }}
+    >
     <AuthProvider>
       <Router>
         <Routes>
           <Route path="/" element={<LoginPage />} />
+          <Route path="/callback" element={<Auth0Callback />} />
           <Route path="landingpage" element={
             <PrivateRoute>
               <LandingPage />
@@ -57,6 +67,7 @@ const App: React.FC = () => {
         </Routes>
       </Router>
     </AuthProvider>
+    </Auth0Provider>
     </>
   );
 }

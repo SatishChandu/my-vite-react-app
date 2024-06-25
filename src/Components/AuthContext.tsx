@@ -1,9 +1,12 @@
-import React, { ReactNode, createContext, useContext, useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 
 interface AuthContextType {
     isAuthenticated: boolean;
-    login: () => void;
+    login: (email?: string, password?: string) => void;
+    loginWithAuth0: () => void;
     logout: () => void;
+    email?: string;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -13,19 +16,42 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const {isAuthenticated: auth0IsAuthenticated, loginWithRedirect, logout: auth0Logout, isLoading, user} = useAuth0();
+    const [isCustomAuthenticated, setIsCustomAuthenticated] = useState(false);
+    const [email, setEmail] = useState<string | undefined>(undefined);
+    useEffect(() => {
+        if (!isLoading) {
+            setIsCustomAuthenticated(auth0IsAuthenticated);
+            if(user) {
+                setEmail(user.email);
+            }
+        }
+    }, [auth0IsAuthenticated, isLoading, user]);
 
-    const login = () => {
-        setIsAuthenticated(true);
+    const login = (email?: string, password?: string) => {
+            if(email && password) {
+                setEmail(email);
+                setIsCustomAuthenticated(true);
+            }else{
+                loginWithRedirect();
+            }
     };
 
     const logout = () => {
-        setIsAuthenticated(false);
+        setIsCustomAuthenticated(false);
+        auth0Logout({logoutParams: {returnTo: window.location.origin}});
+        setEmail(undefined);
     };
 
+    const loginWithAuth0 = () => {
+        loginWithRedirect();
+    };
+
+    const isAuthenticated = auth0IsAuthenticated || isCustomAuthenticated;
+
     return(
-        <AuthContext.Provider value={{isAuthenticated, login, logout}}>
-            {children}
+        <AuthContext.Provider value={{isAuthenticated, login, logout, loginWithAuth0, email }}>
+            {!isLoading && children}
         </AuthContext.Provider>
     );
 };

@@ -34,7 +34,7 @@ const ServicesPage: React.FC = () => {
                 <Col key={service.id} sm={12} md={6} lg={4} className='mb-4'>
                   <Card className='m-2 p-2 h-100'>
                     <div>
-                      <Card.Img variant="top" src={service.image} className="w-auto border border-black"/>
+                      <Card.Img variant="top" src={service['image']} className="w-auto border border-black"/>
                     </div>
                     <Card.Title>{service.title}</Card.Title>
                     <Card.Text>{service.description}</Card.Text>
