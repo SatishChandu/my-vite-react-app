@@ -21,6 +21,7 @@ import { AuthProvider } from './Components/AuthContext.tsx';
 import PrivateRoute from './Components/PrivateRoute.tsx';
 import { Auth0Provider } from '@auth0/auth0-react';
 import Auth0Callback from './Components/Auth0Callback.tsx';
+import EditProfile from './Components/EditProfile.tsx';
 
 const App: React.FC = () => {
   return (
@@ -63,6 +64,7 @@ const App: React.FC = () => {
             <Route path="subenquiry2" element={<Subenquiry2 />} />
             <Route path="subenquiry3" element={<Subenquiry3 />} />
             </Route>
+            <Route path="editprofile" element={<EditProfile />} />
           </Route>
         </Routes>
       </Router>

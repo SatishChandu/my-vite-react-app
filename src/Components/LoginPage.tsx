@@ -8,12 +8,16 @@ import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import { users, addUser } from '../Util';
 import { useAuth } from './AuthContext';
+import { Col, Row } from 'react-bootstrap';
 
 const LoginPage: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [showSignupModal, setShowSignupModal] = useState(false);
+    const [signupFullName, setSignupFullName] = useState('');
+    const [signupMobile, setSignupMobile] = useState('');
+    const [signupOrganization, setSignupOrganization] = useState('');
     const [signupEmail, setSignupEmail] = useState('');
     const [signupPassword, setSignupPassword] = useState('');
     const [showAlert, setShowAlert] = useState(false);
@@ -47,7 +51,7 @@ const LoginPage: React.FC = () => {
             setTimeout(() => setShowAlert(false), 2000);
             return;
         } 
-        addUser(signupEmail, signupPassword);
+        addUser(signupEmail, signupPassword, signupMobile, signupFullName, signupOrganization );
         setShowSuccessAlert(true);
         setTimeout(() => setShowSuccessAlert(false), 3000);
         setTimeout(() => setShowSignupModal(false), 3000);
@@ -110,24 +114,65 @@ const LoginPage: React.FC = () => {
                       User Registration is successful! You can now log in with your new credentials.
                   </Alert>
               )}
-              <Form.Group controlId="signupEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control 
-                  type="email" 
-                  placeholder="Enter email" 
-                  value={signupEmail}
-                  onChange={(e) => setSignupEmail(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group controlId="signupPassword" className="mt-3">
-                <Form.Label>Password</Form.Label>
-                <Form.Control 
-                  type="password" 
-                  placeholder="Password" 
-                  value={signupPassword}
-                  onChange={(e) => setSignupPassword(e.target.value)}
-                />
-              </Form.Group>
+              <Row className="g-2 mb-3">
+                <Form.Group controlId="signupFullName">
+                  <Form.Label>Full Name</Form.Label>
+                  <Form.Control 
+                    type="text" 
+                    placeholder="Enter Full Name" 
+                    value={signupFullName}
+                    onChange={(e) => setSignupFullName(e.target.value)}
+                  />
+                </Form.Group>
+              </Row>
+              <Row className="g-2 mb-3">
+                <Col md>
+                  <Form.Group controlId="signupEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control 
+                      type="email" 
+                      placeholder="Enter email address" 
+                      value={signupEmail}
+                      onChange={(e) => setSignupEmail(e.target.value)}
+                    />
+                  </Form.Group>
+                </Col>
+                <Col md>
+                  <Form.Group controlId="signupPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control 
+                      type="password" 
+                      placeholder="Enter Password" 
+                      value={signupPassword}
+                      onChange={(e) => setSignupPassword(e.target.value)}
+                    />
+                  </Form.Group>      
+                </Col>
+              </Row>
+              <Row className="g-2 mb-3">
+                <Col md>
+                  <Form.Group controlId="signupMobile">
+                    <Form.Label>Mobile</Form.Label>
+                    <Form.Control 
+                      type="text" 
+                      placeholder="Enter Mobile Number" 
+                      value={signupMobile}
+                      onChange={(e) => setSignupMobile(e.target.value)}
+                    />
+                  </Form.Group>
+                </Col>
+                <Col md>
+                  <Form.Group controlId="signupOrganization">
+                    <Form.Label>Organization</Form.Label>
+                    <Form.Control 
+                      type="text" 
+                      placeholder="Enter Organization Name" 
+                      value={signupOrganization}
+                      onChange={(e) => setSignupOrganization(e.target.value)}
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
             </Form>
           </Modal.Body>
           <Modal.Footer>

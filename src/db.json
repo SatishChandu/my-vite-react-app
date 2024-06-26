@@ -4,6 +4,8 @@
       "id": 1,
       "fullName": "Satish Kumar Chandu",
       "designation": "Software Developer | Front End Developer",
+      "email": "satish25@gmail.com",
+      "mobile": 9988877663,
       "organisation": "CMS Edge Solutions Pvt. Ltd",
       "achievements": [
         "Developed a scalable web application",
@@ -15,6 +17,8 @@
       "id": 2,
       "fullName": "Mohammed Hussain",
       "designation": "Software Developer | Back End Developer",
+      "email": "kumar96@gmail.com",
+      "mobile": 8899977554,
       "organisation": "GoSure.AI Pvt. Ltd",
       "achievements": [
         "Developed a scalable web APIs",
@@ -26,6 +30,8 @@
       "id": 3,
       "fullName": "Priyanshu",
       "designation": "Software Engineer | Solution Engineer",
+      "email": "chandu302@gmail.com",
+      "mobile": 9876543201,
       "organisation": "GoSure.AI Pvt. Ltd",
       "achievements": [
         "Set up the configurations for the web apps",

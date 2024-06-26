@@ -1,5 +1,5 @@
 import { Dropdown } from "react-bootstrap";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -14,8 +14,12 @@ import { useAuth } from "./AuthContext";
 
 const LandingPage: React.FC = () => {
     const {email, logout} = useAuth();
+    const navigate = useNavigate();
     const handleLogout = () => {
         logout();
+    }
+    const handleEdit = () => {
+        navigate('./editprofile');
     }
     return (
         <>
@@ -31,7 +35,7 @@ const LandingPage: React.FC = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu style={{ zIndex: 1050 }}>
-                      <Dropdown.Item href="#/action-1">Edit Profile</Dropdown.Item>
+                      <Dropdown.Item onClick={handleEdit}>Edit Profile</Dropdown.Item>
                       <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
