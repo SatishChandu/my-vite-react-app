@@ -54,7 +54,6 @@ const LoginPage: React.FC = () => {
         addUser(signupEmail, signupPassword, signupMobile, signupFullName, signupOrganization );
         setShowSuccessAlert(true);
         setTimeout(() => setShowSuccessAlert(false), 3000);
-        setTimeout(() => setShowSignupModal(false), 3000);
     };
 
     const handleAuth0Login = async () => {
@@ -65,7 +64,7 @@ const LoginPage: React.FC = () => {
     <>
     <div className="main-container">
       <div className="login-form">
-          <h3 className='text-center mb-3'>Welcome to the User Profiles Access Portal</h3>
+          <h3 className='text-center mb-3'>Welcome to the User Profile Access Portal</h3>
           {error && <div className="err-msg">{error}</div>}
           <Form.Label htmlFor="Email">Username
               <FloatingLabel

@@ -30,7 +30,7 @@ const App: React.FC = () => {
     domain="dev-iwi5abr18yz3piud.us.auth0.com"
     clientId="JGflAGltYC0gY7lSAheKBlVpOnRtf2tI"
     authorizationParams={{
-      redirect_uri: window.location.origin + '/callback'
+      redirect_uri: window.location.origin + '/callback',
     }}
     >
     <AuthProvider>

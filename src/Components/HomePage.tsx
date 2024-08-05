@@ -31,7 +31,7 @@ const HomePage: React.FC = () => {
         <div className='d-flex justify-content-center flex-column m-2 w-auto p-2 h-100'>
            {/* <img  src={bgImage} width="auto"/> */}
               <div>
-                <h2>Some of the User Profiles may help to crafting of Web/Mobile apps that's what exactly you need to explore!</h2>
+                <h2>Some of the User Profiles may help you to crafting of Web/Mobile apps that's what exactly you need</h2>
               </div>
               <div>
               <Container>
